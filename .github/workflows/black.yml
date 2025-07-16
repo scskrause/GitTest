@@ -1,0 +1,21 @@
+name: Black Formatting Check
+
+on:
+  push:
+    paths:
+      - '**.py'
+  pull_request:
+    paths:
+      - '**.py'
+
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Black Check
+        uses: jpetrucciani/black-check@master
+        with:
+          path: '.'
+          black_flags: '--exclude .venv/'
+
