@@ -9,3 +9,5 @@ line-length = 100
 profile = "black"
 line_length = 100
 reverse_relative = true
+
+[tool.uv]
