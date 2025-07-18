@@ -10,6 +10,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Print environment info
+        run: |
+          nproc
+          free -m
       
       - name: Build Docker image
         run: docker buildx bake --file bake.hcl --provenance=false --progress plain pytest
