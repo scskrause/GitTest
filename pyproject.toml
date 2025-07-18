@@ -1,9 +1,3 @@
-[project]
-name = "GitTest"
-version = "x"
-description = ""
-requires-python = ">=3.12"
-
 [tool.black]
 line-length = 100
 
