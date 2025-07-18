@@ -22,7 +22,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Bandit
-        run: uv pip install bandit
+        run: uv pip install --system bandit
 
       - name: Run Bandit
         run: bandit --confidence-level high --severity-level medium -r *.py
