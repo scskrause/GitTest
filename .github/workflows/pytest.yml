@@ -1,0 +1,15 @@
+name: pytest
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Build Docker image
+        run: docker buildx bake --file bake.hcl --provenance=false --progress plain test
