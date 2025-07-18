@@ -7,6 +7,7 @@ on:
 jobs:
   # Bandit is a tool designed to find common security issues in Python code.
   bandit:
+    name: Bandit security analysis
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,8 +25,9 @@ jobs:
       - name: Run Bandit
         run: bandit --confidence-level high --severity-level medium -r *.py
 
-  # Black Code formatter
+  # Black code formatter
   black:
+    name: Black code formatter
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
