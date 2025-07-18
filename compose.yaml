@@ -5,7 +5,8 @@ x-common-variables: &common-variables
 
 services:
   pytest:
-    image: pytest:latest
+    build:
+      context: .
     depends_on:
       - postgres
     environment: *common-variables
