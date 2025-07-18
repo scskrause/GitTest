@@ -10,6 +10,7 @@ jobs:
     name: Bandit security analysis
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/python
 
       - name: Install Bandit
