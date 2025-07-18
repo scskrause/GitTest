@@ -5,7 +5,7 @@ on:
   pull_request:
 
 env:
-  BLACK: Monday
+  BLACK: 25.1.0
 
 jobs:
   # Bandit is a tool designed to find common security issues in Python code.
