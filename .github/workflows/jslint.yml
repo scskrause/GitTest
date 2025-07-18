@@ -1,0 +1,21 @@
+name: JavaScript code analysis
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  prettier:
+    name: Prettier code formatter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check with Prettier
+        uses: creyD/prettier_action@v4.6
+        with:
+          dry: true
+          prettier_version: 3.5.3
+          prettier_options: --check **/*.{js,md}
