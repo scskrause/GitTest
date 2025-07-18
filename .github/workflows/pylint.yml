@@ -6,6 +6,7 @@ on:
 
 env:
   BLACK: 25.1.0
+  ISORT: 6.0.1
 
 jobs:
   # Bandit is a tool designed to find common security issues in Python code.
@@ -34,4 +35,17 @@ jobs:
         run: uv pip install black==$BLACK
 
       - name: Run black
-        run: black --check .
+        run: black --check --verbose .
+
+  isort:
+    name: isort import validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/python
+
+      - name: Install isort
+        run: uv pip install isort==$ISORT
+
+      - name: Run isort
+        run: isort --check --verbose .
