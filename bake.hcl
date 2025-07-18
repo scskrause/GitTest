@@ -1,4 +1,4 @@
-target "test" {
+target "pytest" {
   output = ["type=docker"]
-  tags = ["test:latest"]
+  tags = ["pytest:latest"]
 }

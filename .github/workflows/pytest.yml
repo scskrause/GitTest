@@ -12,4 +12,10 @@ jobs:
       - uses: actions/checkout@v4
       
       - name: Build Docker image
-        run: docker buildx bake --file bake.hcl --provenance=false --progress plain test
+        run: docker buildx bake --file bake.hcl --provenance=false --progress plain pytest
+
+      - name: Run tests
+        run: docker compose run --rm pytest
+
+      - name: Remove containers
+        run: docker compose down --remove-orphans
