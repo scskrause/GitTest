@@ -15,7 +15,7 @@ jobs:
         run: docker compose build
 
       - name: Pull external Docker images
-        run: docker compose pull --ignore-buildable
+        run: docker compose pull --quiet --ignore-buildable
 
       - name: Run tests
         run: docker compose run --rm pytest
