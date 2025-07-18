@@ -1,6 +1,7 @@
-name: Static Python code analysis
+name: Python code analysis
 
 on:
+  push:
   pull_request:
 
 jobs:
@@ -9,14 +10,7 @@ jobs:
     name: Bandit security analysis
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v6
-        with:
-          activate-environment: true
-          enable-cache: true
-          python-version: "3.12"
+      - uses: ./.github/actions/python
 
       - name: Install Bandit
         run: uv pip install bandit
@@ -25,8 +19,8 @@ jobs:
         run: bandit --confidence-level high --severity-level medium -r *.py
 
   # Black code formatter
-  black:
-    name: Black code formatter
+  formatting:
+    name: Code formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
