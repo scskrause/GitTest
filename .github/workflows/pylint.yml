@@ -4,6 +4,9 @@ on:
   push:
   pull_request:
 
+env:
+  BLACK: Monday
+
 jobs:
   # Bandit is a tool designed to find common security issues in Python code.
   bandit:
@@ -20,13 +23,15 @@ jobs:
         run: bandit --confidence-level high --severity-level medium -r *.py
 
   # Black code formatter
-  formatting:
-    name: Code formatting
+  black:
+    name: Black code formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run Black Check
-        uses: jpetrucciani/black-check@master
-        with:
-          path: '.'
-          black_flags: '--exclude .venv/'
+      - uses: ./.github/actions/python
+
+      - name: Install black
+        run: uv pip install black==$BLACK
+
+      - name: Run black
+        run: black --check .
