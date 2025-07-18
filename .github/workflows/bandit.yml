@@ -8,10 +8,6 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        python-version: ["3.12"]
-
     steps:
       - uses: actions/checkout@v4
 
@@ -20,7 +16,7 @@ jobs:
         with:
           activate-environment: true
           enable-cache: true
-          python-version: ${{ matrix.python-version }}
+          python-version: "3.12"
 
       - name: Install Bandit
         run: uv pip install bandit
