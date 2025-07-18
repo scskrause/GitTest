@@ -48,4 +48,4 @@ jobs:
         run: uv pip install isort==$ISORT
 
       - name: Run isort
-        run: isort --check --verbose .
+        run: isort --check --skip-gitignore --verbose .
