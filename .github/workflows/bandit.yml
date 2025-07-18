@@ -2,11 +2,7 @@ name: Bandit
 
 on:
   push:
-    paths:
-      - '**.py'
   pull_request:
-    paths:
-      - '**.py'
 
 jobs:
   analyze:
@@ -19,6 +15,9 @@ jobs:
       contents: read
     steps:
       - name: Perform Bandit Analysis
+        uses: actions/setup-python@v5
+          with:
+            python-version: '3.12' 
         uses: PyCQA/bandit-action@v1
         with:
           severity: medium
