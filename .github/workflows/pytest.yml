@@ -21,10 +21,10 @@ jobs:
         uses: docker/bake-action@v6
         with:
           push: true
-          files:
-            - bake.hcl
-          targets:
-            - pytest
+          files: |
+            bake.hcl
+          targets: |
+            pytest
 
       #- name: Pull external Docker images
       #  run: docker compose pull --quiet --ignore-buildable
