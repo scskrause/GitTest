@@ -1,6 +1,7 @@
 name: Python code analysis
 
 on:
+  push:
   pull_request:
 
 env:
