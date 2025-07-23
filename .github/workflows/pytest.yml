@@ -22,12 +22,12 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           load: true
-          tags: pytest:${GITHUB_RUN_ID}
+          tags: pytest:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
       - name: Inspect image
-        run: docker image inspect pytest:${GITHUB_RUN_ID}
+        run: docker image inspect pytest:latest
 
       #- name: Pull external Docker images
       #  run: docker compose pull --quiet --ignore-buildable
