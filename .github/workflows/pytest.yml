@@ -27,7 +27,9 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Run tests
-        run: docker compose run --rm pytest
+        run: |
+          ls
+          docker compose run --rm pytest
 
       - name: Remove containers
         run: docker compose down --remove-orphans
