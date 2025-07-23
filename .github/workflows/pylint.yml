@@ -19,7 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: ./.github/actions/python
+        id: python
 
       - name: Install Bandit
         run: uv pip install bandit
@@ -48,7 +50,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: ./.github/actions/python
+        id: python
 
       - name: Install isort
         run: uv pip install isort==$ISORT
