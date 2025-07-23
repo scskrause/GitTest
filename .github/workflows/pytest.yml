@@ -24,8 +24,8 @@ jobs:
           push: true
           provenance: false
           tags: swr.eu-de.otc.t-systems.com/sv-test-registry/documents:latest
-          cache-from: type=registry,ref=swr.eu-de.otc.t-systems.com/sv-test-registry/documents:pytest-buildcache
-          cache-to: type=registry,ref=swr.eu-de.otc.t-systems.com/sv-test-registry/documents:pytest-buildcache,mode=max
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       #- name: Pull external Docker images
       #  run: docker compose pull --quiet --ignore-buildable
