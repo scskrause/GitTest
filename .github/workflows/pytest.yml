@@ -22,6 +22,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
+          provenance: false
           tags: swr.eu-de.otc.t-systems.com/sv-test-registry/documents:latest
 
       #- name: Pull external Docker images
