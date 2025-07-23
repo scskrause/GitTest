@@ -26,14 +26,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Inspect image
-        run: docker image inspect pytest:latest
+      - name: Run tests
+        run: docker compose run --rm pytest
 
-      #- name: Pull external Docker images
-      #  run: docker compose pull --quiet --ignore-buildable
-
-      #- name: Run tests
-      #  run: docker compose run --rm pytest
-
-      #- name: Remove containers
-      #  run: docker compose down --remove-orphans
+      - name: Remove containers
+        run: docker compose down --remove-orphans
