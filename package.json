@@ -1,0 +1,29 @@
+{
+	"type": "module",
+	"engines": {
+		"node": ">=20.18.3",
+		"pnpm": ">=10.2.1"
+	},
+	"scripts": {
+		"lint": "eslint ext-src assets node-src"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.2.0",
+		"@types/extjs": "4.2.37",
+		"cypress": "^14.4.0",
+		"@cypress/grep": "^4.1.0",
+		"cypress-terminal-report": "^6.1.0",
+		"eslint": "^9.2.0",
+		"eslint-plugin-cypress": "^4.2.0",
+		"globals": "^15.1.0",
+		"prettier": "3.5.3",
+		"svg-sprite": "2.0.2",
+		"eslint-config-prettier": "^10.0.2",
+		"express": "^5.1.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"cypress"
+		]
+	}
+}
