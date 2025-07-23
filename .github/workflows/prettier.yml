@@ -34,7 +34,7 @@ jobs:
             **.scss
 
       - name: Install Prettier
-        run: npm install prettier
+        run: npm install --no-audit --no-fund --loglevel=error prettier
 
       - name: Check with Prettier
         run: npx prettier --check ${{ steps.changed-files.outputs.all_changed_files }}
