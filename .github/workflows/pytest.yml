@@ -34,7 +34,7 @@ jobs:
           sparse-checkout-cone-mode: false
 
       - name: Run tests
-        run: docker compose run --rm pytest
+        run: docker compose run --quiet-pull --rm pytest
 
       - name: Remove containers
         run: docker compose down --remove-orphans
