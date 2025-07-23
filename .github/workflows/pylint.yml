@@ -1,7 +1,6 @@
 name: Python code analysis
 
 on:
-  push:
   pull_request:
 
 env:
@@ -15,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/python
+      - uses: .github/actions/python
 
       - name: Install Bandit
         run: uv pip install bandit
@@ -29,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/python
+      - uses: .github/actions/python
 
       - name: Install black
         run: uv pip install black==$BLACK
@@ -42,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/python
+      - uses: .github/actions/python
 
       - name: Install isort
         run: uv pip install isort==$ISORT
