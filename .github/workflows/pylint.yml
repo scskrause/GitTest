@@ -25,7 +25,7 @@ jobs:
         run: uv pip install bandit
 
       - name: Run Bandit
-        run: bandit --confidence-level high --severity-level medium ${{ steps.changed-files.outputs.all_changed_files }}
+        run: bandit --confidence-level high --severity-level medium ${{ steps.python.outputs.changed_python_files }}
 
   # Black code formatter
   black:
@@ -33,13 +33,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: ./.github/actions/python
+        id: python
 
       - name: Install black
         run: uv pip install black==$BLACK
 
       - name: Run black
-        run: black --check --verbose ${{ steps.changed-files.outputs.all_changed_files }}
+        run: black --check --verbose ${{ steps.python.outputs.changed_python_files }}
 
   isort:
     name: isort import validation
@@ -52,4 +54,4 @@ jobs:
         run: uv pip install isort==$ISORT
 
       - name: Run isort
-        run: isort --check --skip-gitignore --verbose ${{ steps.changed-files.outputs.all_changed_files }}
+        run: isort --check --skip-gitignore --verbose ${{ steps.python.outputs.changed_python_files }}

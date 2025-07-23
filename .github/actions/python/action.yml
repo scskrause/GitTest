@@ -1,5 +1,9 @@
 name: 'Python Setup'
 description: 'Python Setup description'
+outputs:
+  changed_python_files:
+    description: 'List of changed Python files'
+    value: ${{ steps.changed-files.outputs.all_changed_files }}
 runs:
   using: "composite"
   steps:
