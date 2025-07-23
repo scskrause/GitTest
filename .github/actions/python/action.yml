@@ -18,6 +18,4 @@ runs:
 
     - name: Validate that changed Python files exist
       shell: sh
-      run: |
-        echo "${{ steps.changed-files.outputs.all_changed_files }}"
-        test -n "${{ steps.changed-files.outputs.all_changed_files }}"
+      run: test -n "${{ steps.changed-files.outputs.all_changed_files }}"

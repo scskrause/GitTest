@@ -2,7 +2,11 @@ name: Python code analysis
 
 on:
   push:
+    paths:
+      - '**.py'
   pull_request:
+    paths:
+      - '**.py'
 
 env:
   BLACK: 25.1.0
