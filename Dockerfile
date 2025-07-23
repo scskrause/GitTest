@@ -28,7 +28,7 @@ RUN --mount=type=cache,target=/mnt/cache uv pip install Flask
 
 
 
-FROM python-base
+FROM python-base AS pytest
 
 COPY --from=venv $VIRTUAL_ENV $VIRTUAL_ENV
 
